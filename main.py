@@ -12,11 +12,11 @@ def Split_sentence(file_txt):
     head = '\u4e00'
     tail = '\u9fa5'
     word = ""
-    sentence_list = []  # 把拆分的句子保存下来
+    sentence_list = []  # 把拆分开的句子保存
     for each in range(len(file_txt)):
-        if head <= file_txt[each] <= tail:  # 中文编码范围
+        if head <= file_txt[each] <= tail:  # 中文编码的范围
             word += file_txt[each]
-        elif file_txt[each] == "，":  # 用逗号来分句
+        elif file_txt[each] == "，":  # 使用逗号来分开句
             sentence_list.append(word)
             word = ""
         else:
@@ -31,7 +31,7 @@ def Calculation_Similiarity(origin_txt,origin_add_txt):
     word_lenth = []
     total_sum = 0
     total_size = 0
-    # 利用jieba.luct进行分词，并将其保存在list列表中
+    # 利用jieba.luct进行分词操作，并将它保存在list列表内
     ori_list = [[word for word in jieba.lcut(sentence)] for sentence in origin_txt]
     ori_add_list = [[word for word in jieba.lcut(sentence)] for sentence in origin_add_txt]
     # 生成词典
